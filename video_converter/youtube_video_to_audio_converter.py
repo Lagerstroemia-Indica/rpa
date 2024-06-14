@@ -44,12 +44,21 @@ def main(video_urls, output_dir, zip_name):
     create_zip(audio_files, zip_name)
     print("All tasks completed!")
 
+
+# 파일 읽기
+def read_urls_from_file(file_path):
+    with open(file_path, 'r') as file:
+        urls = file.read().splitlines()
+    return urls
+
 if __name__ == "__main__":
-    video_urls = [
-        'https://www.youtube.com/watch?v=GFGPSx6cPN0',
-        'https://www.youtube.com/watch?v=g-qF3GuAozw',
-        # Add more video URLs here
-    ]
+    file_path = './hongsi_playlist.txt'
+    video_urls = read_urls_from_file(file_path)
+    # video_urls = [
+    #     'https://www.youtube.com/watch?v=GFGPSx6cPN0',
+    #     'https://www.youtube.com/watch?v=g-qF3GuAozw',
+    #     # Add more video URLs here
+    # ]
     output_dir = "audio_files"
     zip_name = "audio_files.zip"
     
